@@ -89,13 +89,12 @@ nav a {
 /* HOME PAGE */
 
 .home-bg {
-    background-image: url('img/bg-home.jpg');
+    background-image: url('img/bg-ipad.png');
     background-repeat: no-repeat;
-    background-size: cover;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    
+    background-size: cover
 }
 
 .home-buttons{
@@ -122,21 +121,9 @@ nav a {
     font-weight: 500;
 }
 
-.characters {
-    position: absolute;
-    bottom: -50px;
-    right: -250px;
-}
-
-.characters img {
-    width: 600px;
-}
-
-
 @media (min-width: 2000px){
     .home-bg {
-        background-image: url('img/bg-home.jpg');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
     }
 }
