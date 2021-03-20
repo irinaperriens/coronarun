@@ -26,7 +26,10 @@
     background-color: orange;
     background-repeat: no-repeat;
     background-size: cover;
+}
 
+.hidden {
+    display: none;
 }
 
 .gamecontainer{
@@ -105,6 +108,18 @@ nav a {
     color: white;
     font-size: 2rem;
     font-family: 'Permanent Marker', cursive;
+}
+
+/* GAME OVER */
+
+.gameover {
+    background-color: white;
+    width: 20rem;
+    height: 20rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
 }
 
 /* HOME PAGE */

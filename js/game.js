@@ -7,6 +7,9 @@ import {startCity, renderCity} from './background/city.js'
 // ELEMENTEN
 const playerDOM = document.querySelector('#player');
 const grid = document.querySelector('.grid');
+const gameover = document.querySelector('.gameOver');
+let gameOverScore = document.querySelector('.gameover-score');
+
 let obstacles = [];
 let lives = document.querySelector('#lives');
 let screenSize = window.innerWidth;
