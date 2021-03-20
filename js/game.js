@@ -1,12 +1,14 @@
 // IMPORTS
 import {Player} from './player/player.js'  
 import {Virus} from './obstacle/obstacle.js'
+import {startRoad, renderRoads} from './background/background.js'
 
 // ELEMENTEN
 const playerDOM = document.querySelector('#player');
 const grid = document.querySelector('.grid');
 let obstacles = [];
 let lives = document.querySelector('#lives');
+let screenSize = window.innerWidth;
 
 let player = new Player(playerDOM);
 
@@ -44,13 +46,13 @@ function touchUp(){
 function gameLoop(){
     player.renderPlayer();
     renderObstacles();
+    renderRoads(screenSize);
 }
 
 function spawnObstacles(){
-    obstacles.push(new Virus(1800,grid));
+    obstacles.push(new Virus(screenSize+100,grid));
     console.log(obstacles);
     setTimeout(spawnObstacles, Math.random() * 5000);  
-
 }
 
 function renderObstacles(){
@@ -113,11 +115,6 @@ function noScroll(){
     window.scrollTo(0,0);
 }
 
-
-
-
-
-
 export function startGame() {
     // Game Controls
     document.addEventListener("keydown", keyDown);
@@ -125,9 +122,11 @@ export function startGame() {
     document.addEventListener("touchstart", touchDown);
     document.addEventListener("touchend", touchUp);
     window.addEventListener('scroll', noScroll);
+    console.log(screenSize);
 
     setInterval(gameLoop,20); 
     spawnObstacles();  
     setInterval(cleanUpHTML,10000);  
+    startRoad(3,"road", screenSize, 'road');
 }
 
