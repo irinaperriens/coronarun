@@ -4,7 +4,6 @@
     z-index: 1;
     left: 120px;
     border: solid 1px red;
-
 }
 
 .virus {
@@ -25,8 +24,14 @@
 
 .game-bg {
     background-color: orange;
-    background-image: url('img/bg.jpg');
+    background-repeat: no-repeat;
     background-size: cover;
+
+}
+
+.gamecontainer{
+    height: 100vh;
+    overflow: hidden;
 }
 
 .grid {
@@ -130,10 +135,6 @@ nav a {
     margin-right: auto;
     margin-top: 5rem;
 }
-
-.home-buttons:nth-child(1) {
-    
-  }
 
 @media (min-width: 2000px){
     .home-bg {

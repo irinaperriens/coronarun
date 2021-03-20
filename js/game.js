@@ -14,7 +14,7 @@ let player = new Player(playerDOM);
 function keyDown(e){
     if(e.keyCode == 32){
         if(!player.jump){
-            player.velocity = 30;
+            player.velocity = 40;
         }
     }
 }
@@ -25,6 +25,19 @@ function keyUp(e){
             player.velocity = -3;
         }
     }
+}
+
+function touchDown(){
+        if(!player.jump){
+            player.velocity = 40;
+        }
+}
+
+function touchUp(){
+        if(player.velocity > 2){
+            player.velocity = -3;
+        }
+    
 }
 
 // GAME
@@ -96,6 +109,12 @@ function cleanUpHTML(){
     })
 }
 
+function noScroll(){
+    window.scrollTo(0,0);
+}
+
+
+
 
 
 
@@ -103,8 +122,9 @@ export function startGame() {
     // Game Controls
     document.addEventListener("keydown", keyDown);
     document.addEventListener("keyup", keyUp);
-    document.addEventListener("touchstart", keyDown);
-    document.addEventListener("touchend", keyUp);
+    document.addEventListener("touchstart", touchDown);
+    document.addEventListener("touchend", touchUp);
+    window.addEventListener('scroll', noScroll);
 
     setInterval(gameLoop,20); 
     spawnObstacles();  
