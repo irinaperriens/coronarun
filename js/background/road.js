@@ -1,15 +1,14 @@
 let roadArray = [];
-
+let imageUrl;
 class Road {
-    constructor(position, speed, image, width,_class){
+    constructor(position, speed, width,_class){
         this.position = position;
         this.speed = speed;
-        this.image = image;
         this.width = width;
         this._class = _class;
         this.element = document.createElement('img');
 
-        this.element.setAttribute('src', 'img/' + image + '.png');
+        this.element.setAttribute('src', 'img/' + imageUrl + '.png');
         this.element.classList.add(_class);
         this.element.style.width = width + 'px';
         let grid = document.querySelector('.background');
@@ -24,20 +23,25 @@ class Road {
     checkBoundary(screenSize){
         if(this.position < -this.width){
             this.element.classList.add("canBeDeleted");
-            createRoad(screenSize,this.speed, this.image,this.width,this._class)
+            createRoad(screenSize,this.speed,this.width,this._class)
             return true;   
         }
     }
 
 }
 
-function createRoad(position, speed, image, width,_class){
-    roadArray.push(new Road(position-100, speed, image, width,_class));
+function createRoad(position, speed, width,_class){
+    roadArray.push(new Road(position-100, speed, width,_class));
+}
+
+export function setRoadImage(img){
+    imageUrl = img;
 }
 
 export function startRoad(speed, image, width, _class){
+    setRoadImage(image);
     for (let index = 0; index < 2; index++) {
-        createRoad(width*index, speed, image, width, _class);
+        createRoad(width*index, speed, width, _class);
     }
 }
 

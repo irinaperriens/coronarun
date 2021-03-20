@@ -1,20 +1,20 @@
 // IMPORTS
 import {Player} from './player/player.js'  
 import {Virus} from './obstacle/obstacle.js'
-import {startRoad, renderRoads} from './background/road.js'
+import {startRoad, renderRoads, setRoadImage} from './background/road.js'
 import {startCity, renderCity} from './background/city.js'
 
 // ELEMENTEN
 const playerDOM = document.querySelector('#player');
 const grid = document.querySelector('.grid');
-const gameover = document.querySelector('.gameOver');
-let gameOverScore = document.querySelector('.gameover-score');
-
 let obstacles = [];
 let lives = document.querySelector('#lives');
 let screenSize = window.innerWidth;
 
 let player = new Player(playerDOM);
+
+// ARRAYS
+let setRoadImages = ['road', 'road1', 'road2'];
 
 //INTERVALS
 let gameLoopInterval;
@@ -89,7 +89,11 @@ function collision(player, virus){
         virus.element.classList.add('hit-player');       
         lives.innerHTML = player.lives;
         if(player.lives === 0){
-            alert('game over');
+            
+            let gameover = document.querySelector('.gameover');
+            let gameOverScore = document.querySelector('.gameover-score');
+            gameOverScore.innerHTML = counter;
+            gameover.classList.add("visible");
             stopGame();
         }
     }
@@ -118,6 +122,9 @@ scoreIsCounting ();
 function checkLevel(counter){
     if(counter >= levelCounter*1000){
         levelCounter++;
+        if(levelCounter < setRoadImages.length){
+            setRoadImage(setRoadImages[levelCounter-1]);
+        } else setRoadImage(setRoadImages[setRoadImages.length-1]);
     }
     level.innerHTML = levelCounter;   
 }
@@ -144,9 +151,9 @@ export function startGame() {
     console.log(screenSize);
 
     gameLoopInterval =  setInterval(gameLoop,20); 
-    spawnObstacles();  
+    // spawnObstacles();  
     cleanupInterval = setInterval(cleanUpHTML,10000);  
-    startRoad(3,"road", screenSize, 'road');
+    startRoad(3,setRoadImages[0], screenSize, 'road');
     startCity(1,"city", screenSize, 'city');
 }
 
