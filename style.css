@@ -8,8 +8,8 @@
 
 .virus {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     background-image: url('img/Corona.png');
     background-size: cover;
     /*--background-color: orange;*/

@@ -15,7 +15,7 @@ export class Virus {
     }
 
     checkBoundary(){
-        if(this.position < -100){
+        if(this.position < -120){
             this.element.classList.add("canBeDeleted");
             return true;
         }
