@@ -1,7 +1,8 @@
 // IMPORTS
 import {Player} from './player/player.js'  
 import {Virus} from './obstacle/obstacle.js'
-import {startRoad, renderRoads} from './background/background.js'
+import {startRoad, renderRoads} from './background/road.js'
+import {startCity, renderCity} from './background/city.js'
 
 // ELEMENTEN
 const playerDOM = document.querySelector('#player');
@@ -11,6 +12,11 @@ let lives = document.querySelector('#lives');
 let screenSize = window.innerWidth;
 
 let player = new Player(playerDOM);
+
+//INTERVALS
+let gameLoopInterval;
+let spawnObstaclesInterval;
+let cleanupInterval;
 
 // GAME CONTROLS
 function keyDown(e){
@@ -47,12 +53,13 @@ function gameLoop(){
     player.renderPlayer();
     renderObstacles();
     renderRoads(screenSize);
+    renderCity(screenSize);
 }
 
 function spawnObstacles(){
     obstacles.push(new Virus(screenSize+100,grid));
     console.log(obstacles);
-    setTimeout(spawnObstacles, Math.random() * 5000);  
+    spawnObstaclesInterval = setTimeout(spawnObstacles, Math.random() * 5000);  
 }
 
 function renderObstacles(){
@@ -80,11 +87,13 @@ function collision(player, virus){
         lives.innerHTML = player.lives;
         if(player.lives === 0){
             alert('game over');
+            stopGame();
         }
     }
 }
 
 let level = document.querySelector('#level');
+let levelCounter = 1;
 
 let scoreCounter = document.querySelector('#score-counter');
 let counter = 0;
@@ -96,12 +105,19 @@ function scoreIsCounting (){
         } else {
             counter += 1;
             scoreCounter.innerHTML = counter; 
+            checkLevel(counter);
         }
 
     },20);
-
 }
-scoreIsCounting ()
+scoreIsCounting ();
+
+function checkLevel(counter){
+    if(counter >= levelCounter*1000){
+        levelCounter++;
+    }
+    level.innerHTML = levelCounter;   
+}
 
 
 function cleanUpHTML(){
@@ -124,9 +140,16 @@ export function startGame() {
     window.addEventListener('scroll', noScroll);
     console.log(screenSize);
 
-    setInterval(gameLoop,20); 
+    gameLoopInterval =  setInterval(gameLoop,20); 
     spawnObstacles();  
-    setInterval(cleanUpHTML,10000);  
+    cleanupInterval = setInterval(cleanUpHTML,10000);  
     startRoad(3,"road", screenSize, 'road');
+    startCity(1,"city", screenSize, 'city');
+}
+
+export function stopGame(){
+    clearInterval(gameLoopInterval);
+    clearInterval(cleanupInterval);
+    clearTimeout(spawnObstaclesInterval);    
 }
 
