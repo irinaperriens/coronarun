@@ -151,7 +151,7 @@ export function startGame() {
     console.log(screenSize);
 
     gameLoopInterval =  setInterval(gameLoop,20); 
-    // spawnObstacles();  
+    spawnObstacles();  
     cleanupInterval = setInterval(cleanUpHTML,10000);  
     startRoad(3,setRoadImages[0], screenSize, 'road');
     startCity(1,"city", screenSize, 'city');
