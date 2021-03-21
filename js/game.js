@@ -3,6 +3,7 @@ import {Player} from './player/player.js'
 import {Virus} from './obstacle/obstacle.js'
 import {startRoad, renderRoads, setRoadImage} from './background/road.js'
 import {startCity, renderCity} from './background/city.js'
+import * as highscores from './highscores.js'
 
 // ELEMENTEN
 const playerDOM = document.querySelector('#player');
@@ -158,6 +159,10 @@ export function startGame() {
 }
 
 export function stopGame(){
+
+    highscores.writeHighscore(counter);
+    console.log(highscores.getHighscores());
+
     clearInterval(gameLoopInterval);
     clearInterval(cleanupInterval);
     clearTimeout(spawnObstaclesInterval);    
