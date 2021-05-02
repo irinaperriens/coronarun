@@ -4,7 +4,10 @@ import {Virus} from './obstacle/obstacle.js'
 import {Facemask} from './obstacle/facemask.js'
 import {Vaccin} from './obstacle/vaccin.js'
 import {startRoad, renderRoads, setRoadImage} from './background/road.js'
+import {startSkycolor, renderSkycolors, setSkycolor} from './background/skycolor.js'
+import {startSky, renderSkies, setSkyImage} from './background/sky.js'
 import {startCity, renderCity} from './background/city.js'
+import {startCloud, renderCloud} from './background/clouds.js'
 import * as highscores from './highscores.js'
 
 // ELEMENTEN
@@ -18,6 +21,8 @@ let player = new Player(playerDOM);
 
 // ARRAYS
 let setRoadImages = ['road', 'road1', 'road2'];
+let setSkyImages = ['sky', 'sky1', 'sky2'];
+let setSkycolors = ['red', 'blue', 'green'];
 
 //INTERVALS
 let gameLoopInterval;
@@ -59,7 +64,10 @@ function gameLoop(){
     player.renderPlayer();
     renderObstacles();
     renderRoads(screenSize);
+    renderSkies(screenSize);
     renderCity(screenSize);
+    renderCloud(screenSize);
+    renderSkycolors(screenSize);
 }
 
 function spawnObstacles(){
@@ -89,8 +97,6 @@ function renderObstacles(){
         });
     }
 }
-
-
 
 function collision(player, obstacle){
     if(obstacle.position <= 320 && obstacle.position >= 120 && player.position <= 130 && player.position >= 30 && obstacle.hitPlayer == false){
@@ -146,7 +152,13 @@ function checkLevel(counter){
         levelCounter++;
         if(levelCounter < setRoadImages.length){
             setRoadImage(setRoadImages[levelCounter-1]);
-        } else setRoadImage(setRoadImages[setRoadImages.length-1]);
+            setSkyImage(setSkyImages[levelCounter-1]);
+            setSkycolor(setSkycolors[levelCounter-1]);
+        } else {
+            setRoadImage(setRoadImages[setRoadImages.length-1]);
+            setSkyImage(setSkyImages[setSkyImages.length-1]);
+            setSkycolor(setSkycolors[setSkycolors.length-1]);
+        }
     }
     level.innerHTML = levelCounter;   
 }
@@ -176,7 +188,10 @@ export function startGame() {
     spawnObstacles();  
     cleanupInterval = setInterval(cleanUpHTML,10000);  
     startRoad(3,setRoadImages[0], 1080, 'road');
+    startSkycolor(3,setSkycolors[0],1080, 'skycolor');
     startCity(1,"city", screenSize, 'city');
+    startCloud(1.1,"cloud", screenSize, 'cloud');
+    startSky(0.8,setSkyImages[0], screenSize, 'sky');
 }
 
 export function stopGame(){

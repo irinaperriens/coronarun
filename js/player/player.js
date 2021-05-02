@@ -1,5 +1,5 @@
 const GRAVITY = 1.5;
-const GROUND = 30;
+const GROUND = 115;
 
 export class Player {
     constructor(element){
@@ -13,15 +13,22 @@ export class Player {
         this.immune = false;
     }
 
+
     shieldPlayer(){
         this.shielded = true;
         this.element.classList.add('shielded');
+
+        let shieldByMask = document.querySelector('.shield-by-mask');
+        shieldByMask.classList.remove('hidden');
         console.log('shielded');
     }
 
     removeShield(){
         this.shielded = false;
         this.element.classList.remove('shielded');
+
+        let shieldByMask = document.querySelector('.shield-by-mask');
+        shieldByMask.classList.add('hidden');
         console.log('not shielded');
     }
 

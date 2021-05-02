@@ -1,6 +1,6 @@
-let roadArray = [];
+let skyArray = [];
 let imageUrl;
-class Road {
+class Sky {
     constructor(position, speed, width,_class){
         this.position = position;
         this.speed = speed;
@@ -11,12 +11,12 @@ class Road {
         this.element.setAttribute('src', 'img/' + imageUrl + '.png');
         this.element.classList.add(_class);
         this.element.style.width = width + 'px';
-        
+        //this.element.style.backgroundColor = "red";
         let grid = document.querySelector('.background');
         grid.appendChild(this.element);
     }
 
-    renderRoad(){
+    renderSky(){
         this.position -= this.speed;
         this.element.style.left = this.position + 'px';
     }
@@ -24,34 +24,34 @@ class Road {
     checkBoundary(screenSize){
         if(this.position < -this.width){
             this.element.classList.add("canBeDeleted");
-            createRoad(screenSize,this.speed,this.width,this._class)
+            createSky(screenSize,this.speed,this.width,this._class)
             return true;   
         }
     }
 
 }
 
-function createRoad(position, speed, width,_class){
-    roadArray.push(new Road(position-100, speed, width,_class));
+function createSky(position, speed, width,_class){
+    skyArray.push(new Sky(position-100, speed, width,_class));
 }
 
-export function setRoadImage(img){
+export function setSkyImage(img){
     imageUrl = img;
 }
 
-export function startRoad(speed, image, width, _class){
-    setRoadImage(image);
-    for (let index = 0; index <4 ; index++) {
-        createRoad(width *index, speed, width, _class);
-    }
+export function startSky(speed, image, width, _class){
+    setSkyImage(image);
+    
+        createSky(width, speed, width, _class);
+    
 }
 
-export function renderRoads(screenSize){
-    if(roadArray.length != 0){
-            roadArray.forEach(e=>{
-                e.renderRoad();
+export function renderSkies(screenSize){
+    if(skyArray.length != 0){
+            skyArray.forEach(e=>{
+                e.renderSky();
                 if(e.checkBoundary(screenSize)){
-                    roadArray.shift();
+                    skyArray.shift();
                 }
             }
 

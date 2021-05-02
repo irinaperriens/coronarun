@@ -8,11 +8,9 @@ export class Vaccin {
         this.hitPlayer = false;
     }
 
-    renderVirus(){
-       
+    renderVirus(){   
         this.position -= 5;
         this.element.style.left = this.position + 'px';
-    
     }
 
     checkBoundary(){
@@ -20,6 +18,5 @@ export class Vaccin {
             this.element.classList.add("canBeDeleted");
             return true;
         }
-
     }
 }

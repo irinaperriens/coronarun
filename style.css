@@ -5,41 +5,34 @@ body {
 #player {
     width: 200px;
     position: absolute;
-    z-index: 1;
+    z-index: 13;
     left: 120px;
     border: solid 1px red;
 }
 
-.virus {
+.virus, .vaccin, .facemask {
     position: absolute;
     width: 130px;
     height: 130px;
-    background-image: url('img/Corona.png');
     background-size: cover;
     /*--background-color: orange;*/
-    bottom: 30px;
+    bottom: 115px;
+}
+
+.virus {
+    background-image: url('img/Corona.png');
+    bottom: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .facemask {
-    position: absolute;
-    width: 130px;
-    height: 130px;
     background-image: url('img/mask.png');
-    background-size: cover;
-    /*--background-color: orange;*/
-    bottom: 30px;
 }
 
 .vaccin {
-    position: absolute;
-    width: 130px;
-    height: 130px;
     background-image: url('img/vaccine.png');
-    background-size: cover;
-    /*--background-color: orange;*/
-    bottom: 30px;
 }
-
 
 .edge{
     width: 100px;
@@ -48,7 +41,7 @@ body {
 }
 
 .game-bg {
-    background-color: orange;
+    background-color: #0a0025;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -69,18 +62,38 @@ body {
 }
 
 .city {
-    height: 300px;
     position: absolute;
-    bottom: 100px;
+    bottom: 70px;
     z-index: -3;
     overflow-y: hidden;
 }
 
 .road {
-    height: 100px;
+    height: 150px;
     position: absolute;
     bottom: 0px;
     z-index: 0;
+    overflow-y: hidden;
+}
+
+.skycolor {
+    position: absolute;
+    bottom: 0px;
+    overflow-y: hidden;
+}
+
+.sky {
+    position: absolute;
+    top: 150px;
+    overflow-y: hidden;
+    z-index: -4;
+}
+
+.cloud {
+    width: 80%;
+    position: absolute;
+    top: 100px;
+    z-index: 10;
     overflow-y: hidden;
 }
 
