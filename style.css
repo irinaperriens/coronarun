@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 #player {
     width: 200px;
     position: absolute;
@@ -15,6 +19,27 @@
     /*--background-color: orange;*/
     bottom: 30px;
 }
+
+.facemask {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background-image: url('img/mask.png');
+    background-size: cover;
+    /*--background-color: orange;*/
+    bottom: 30px;
+}
+
+.vaccin {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background-image: url('img/vaccine.png');
+    background-size: cover;
+    /*--background-color: orange;*/
+    bottom: 30px;
+}
+
 
 .edge{
     width: 100px;

@@ -9,6 +9,30 @@ export class Player {
         this.jump = false;
         this.velocity = 0;
         this.element = element;
+        this.shielded = false;
+        this.immune = false;
+    }
+
+    shieldPlayer(){
+        this.shielded = true;
+        this.element.classList.add('shielded');
+        console.log('shielded');
+    }
+
+    removeShield(){
+        this.shielded = false;
+        this.element.classList.remove('shielded');
+        console.log('not shielded');
+    }
+
+    vaccinatePlayer(){
+        this.immune = true;
+        this.element.classList.add('immune');
+        setTimeout(()=>{
+            this.immune = false;
+            this.element.classList.remove('immune');  
+            console.log('gestopt');  
+        }, 10000);  
     }
 
     renderPlayer(){

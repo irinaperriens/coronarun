@@ -1,9 +1,9 @@
-export class Virus {
+export class Facemask {
     constructor(position, grid){
         this.position = position;
-        this.type = 'virus';
+        this.type = 'facemask';
         this.element = document.createElement('div');
-        this.element.classList.add('virus');
+        this.element.classList.add('facemask');
         grid.appendChild(this.element);
         this.hitPlayer = false;
     }

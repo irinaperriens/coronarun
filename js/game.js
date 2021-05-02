@@ -1,6 +1,8 @@
 // IMPORTS
 import {Player} from './player/player.js'  
 import {Virus} from './obstacle/obstacle.js'
+import {Facemask} from './obstacle/facemask.js'
+import {Vaccin} from './obstacle/vaccin.js'
 import {startRoad, renderRoads, setRoadImage} from './background/road.js'
 import {startCity, renderCity} from './background/city.js'
 import * as highscores from './highscores.js'
@@ -61,9 +63,16 @@ function gameLoop(){
 }
 
 function spawnObstacles(){
-    obstacles.push(new Virus(screenSize+100,grid));
+    let random = Math.floor(Math.random()*100)+1;
+    if(random < 10){
+        obstacles.push(new Vaccin(screenSize+100,grid));
+    } else if(random > 10 && random < 30){
+        obstacles.push(new Facemask(screenSize+100,grid));
+    } else {
+        obstacles.push(new Virus(screenSize+100,grid));
+    }
     console.log(obstacles);
-    spawnObstaclesInterval = setTimeout(spawnObstacles, Math.random() * 5000);  
+    spawnObstaclesInterval = setTimeout(spawnObstacles, Math.floor(Math.random()*3000)+1000);  
 }
 
 function renderObstacles(){
@@ -83,12 +92,24 @@ function renderObstacles(){
 
 
 
-function collision(player, virus){
-    if(virus.position <= 320 && virus.position >= 120 && player.position <= 130 && player.position >= 30 && virus.hitPlayer == false){
-        player.lives--;
-        virus.hitPlayer = true;
-        virus.element.classList.add('hit-player');       
+function collision(player, obstacle){
+    if(obstacle.position <= 320 && obstacle.position >= 120 && player.position <= 130 && player.position >= 30 && obstacle.hitPlayer == false){
+
+        if(obstacle.type == 'virus' && player.shielded == false && player.immune == false){
+            player.lives--;
+        } else if(obstacle.type == 'virus' && player.shielded == true && player.immune == false){
+            player.removeShield();
+        }
+         else if(obstacle.type == 'facemask'){
+            player.shieldPlayer();
+        } else if(obstacle.type == 'vaccin'&& player.immune == false){
+            player.vaccinatePlayer();
+        }
+
+        obstacle.hitPlayer = true;
+        obstacle.element.classList.add('hit-player');       
         lives.innerHTML = player.lives;
+
         if(player.lives === 0){
             
             let gameover = document.querySelector('.gameover');
@@ -154,7 +175,7 @@ export function startGame() {
     gameLoopInterval =  setInterval(gameLoop,20); 
     spawnObstacles();  
     cleanupInterval = setInterval(cleanUpHTML,10000);  
-    startRoad(3,setRoadImages[0], screenSize, 'road');
+    startRoad(3,setRoadImages[0], 1080, 'road');
     startCity(1,"city", screenSize, 'city');
 }
 
