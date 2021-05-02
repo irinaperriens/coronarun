@@ -53,6 +53,7 @@ function touchDown(){
 }
 
 function touchUp(){
+    
         if(player.velocity > 2){
             player.velocity = -3;
         }
