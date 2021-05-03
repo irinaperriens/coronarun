@@ -17,6 +17,7 @@ body {
     background-size: cover;
     /*--background-color: orange;*/
     bottom: 115px;
+    left: 0;
 }
 
 .virus {
@@ -63,8 +64,8 @@ body {
 
 .city {
     position: absolute;
-    bottom: 70px;
-    z-index: -3;
+    bottom: 100px;
+    z-index: -10;
     overflow-y: hidden;
 }
 

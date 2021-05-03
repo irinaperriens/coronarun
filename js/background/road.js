@@ -11,7 +11,6 @@ class Road {
         this.element.setAttribute('src', 'img/' + imageUrl + '.png');
         this.element.classList.add(_class);
         this.element.style.width = width + 'px';
-        
         let grid = document.querySelector('.background');
         grid.appendChild(this.element);
     }
@@ -41,7 +40,7 @@ export function setRoadImage(img){
 
 export function startRoad(speed, image, width, _class){
     setRoadImage(image);
-    for (let index = 0; index <4 ; index++) {
+    for (let index = 0; index < 3 ; index++) {
         createRoad(width *index, speed, width, _class);
     }
 }
