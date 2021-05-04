@@ -40,7 +40,7 @@ export function setRoadImage(img){
 
 export function startRoad(speed, image, width, _class){
     setRoadImage(image);
-    for (let index = 0; index < 3 ; index++) {
+    for (let index = 0; index < 4 ; index++) {
         createRoad(width *index, speed, width, _class);
     }
 }

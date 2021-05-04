@@ -7,15 +7,26 @@
     <title>BP6 test versie</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="app.js" type="module"></script>
 </head>
 
 <header>
     <nav>
-        <li><a href="" id="score-counter">0</a></li>
-        <li><a href="" id="lives">3</a></li>
-        <li><a href=""id="level">1</a></li>
+        <li class="score-container">
+            <img src="img/score.png" alt="score">
+            <a href="" id="score-counter">0</a>
+        </li>
+        <li class="score-container">
+            <img src="img/heart.png" alt="heart">
+            <a href="" id="lives">3</a>
+        </li>
+        <li class="score-container">
+            <img src="img/Lvlup.png" alt="lvlup">
+            <a href=""id="level">1</a>
+        </li>
     </nav>
 </header>
 
@@ -23,7 +34,7 @@
     <div class="gamecontainer">
         <div class="gameover-container">
             <h2 id="game-over"></h2>
-            <img src="img/Corona.jpg" width='300px' alt="video" id="explainerVideo" class="invisible">
+            <img src="img/Corona.png" width='300px' alt="video" id="explainerVideo" class="invisible">
         </div>
 
         <div class="gameover hidden">

@@ -128,13 +128,18 @@ body {
 }
 
 header { 
-    background-color:rgba(255,255,255,0.5);
-    box-shadow: 0 4px 10px 2px rgba(255,255,255,0.5);
     position: absolute;
-    width: 100%;
-    right:0;
-    top:0;
+    background-color:rgba(255,255,255,0.3);
+    width: 30%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    top: 0;
+    left: 0;
+    border-radius:0 0 3rem 0;
+    border-right: 5px groove rgba(255,255,255,0.8);
+    border-bottom: 5px groove rgba(255,255,255,0.8);
 }
+
 nav {
     padding: 1rem;
     display: flex;
@@ -145,8 +150,27 @@ nav {
 nav a {
     text-decoration: none;
     color: white;
-    font-size: 2rem;
-    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+}
+
+
+nav li {
+    list-style: none;
+}
+
+.score-container img {
+    width: 30px;
+    margin-bottom: 0.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
 }
 
 /* GAME OVER */
