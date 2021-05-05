@@ -34,13 +34,28 @@ export class Player {
 
     vaccinatePlayer(){
         this.immune = true;
-        this.element.classList.add('immune');
-        setTimeout(()=>{
-            this.immune = false;
-            this.element.classList.remove('immune');  
-            console.log('gestopt');  
-        }, 10000);  
+        this.element.classList.add("immune");
+        let clock = document.querySelector(".clock");
+        clock.classList.remove("hidden");
+    
+        let timeLeft = 10;
+    
+        let interval = setInterval(() => {
+            document.getElementById("seconds").innerHTML = timeLeft;
+    
+            timeLeft--;
+    
+            if(timeLeft < 0){
+                clearInterval(interval);
+                this.immune = false;
+                this.element.classList.remove('immune');
+                clock.classList.add('hidden');
+            }
+    
+        },1000)
     }
+
+
 
     renderPlayer(){
 

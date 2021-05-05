@@ -110,6 +110,7 @@ function collision(player, obstacle){
             player.shieldPlayer();
         } else if(obstacle.type == 'vaccin'&& player.immune == false){
             player.vaccinatePlayer();
+            
         }
 
         obstacle.hitPlayer = true;
