@@ -99,7 +99,7 @@ function renderObstacles(){
 }
 
 function collision(player, obstacle){
-    if(obstacle.position <= 320 && obstacle.position >= 120 && player.position <= 130 && player.position >= 30 && obstacle.hitPlayer == false){
+    if(obstacle.position <= 220 && obstacle.position >= 120 && player.position <= 130 && player.position >= 30 && obstacle.hitPlayer == false){
 
         if(obstacle.type == 'virus' && player.shielded == false && player.immune == false){
             player.lives--;
