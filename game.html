@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="game-style.css">
     <script src="app.js" type="module"></script>
+    
 </head>
 
 <header>
@@ -42,6 +43,12 @@
                     <p>Door de video's te kijken leer je meer over corona en de maatregelen.</p>
                     <p>Als we de info uit de video's toepassen dan kunnen we samen de wereld terug normaal krijgen!</p>
                     <a href="video.html">Bekijk de video</a>
+                    <div class="moods">
+                        <button data-mood = "happy" class="mood">happy</button>
+                        <button data-mood = "sad" class="mood">sad</button>
+                        <button data-mood = "angry" class="mood">angry</button>
+                        <button data-mood = "scared" class="mood">scared</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,7 +66,7 @@
         </div>
 
         <div id="player">
-            <img class="player"  src="img/character.png" alt="player">
+            <img id="playerimage" class="player"  src="img/girl.png" alt="player">
         </div>
 
         <div class="grid"></div>  
@@ -69,4 +76,7 @@
     <img src="img/road-bg.png" class="road-bg" alt="road">
     <img src="img/road-bg.png" class="road-bg" alt="road">   
 </body>
+
+<script src="js/mood.js"></script>
+
 </html>

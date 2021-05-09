@@ -73,4 +73,10 @@ export class Player {
 
         this.element.style.bottom = this.position + 'px';
     }
+
+    setPlayerImage(image){
+        let player = document.getElementById('playerimage');
+        player.setAttribute('src', 'img/'+ image +'.png');
+    }
+
 }

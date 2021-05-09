@@ -17,6 +17,7 @@ let lives = document.querySelector('#lives');
 let screenSize = window.innerWidth;
 
 let player = new Player(playerDOM);
+player.setPlayerImage(highscores.getCookie("character"));
 
 // ARRAYS
 let setRoadImages = ['road', 'road1', 'road2'];
