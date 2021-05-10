@@ -6,6 +6,7 @@ export class Facemask {
         this.element.classList.add('facemask');
         grid.appendChild(this.element);
         this.hitPlayer = false;
+        this.element.style.left = position + 'px';
     }
 
     renderVirus(){

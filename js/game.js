@@ -186,7 +186,7 @@ export function startGame() {
     window.addEventListener('scroll', noScroll);
     console.log(screenSize);
 
-    gameLoopInterval =  setInterval(gameLoop,20); 
+    gameLoopInterval =  setInterval(gameLoop,10); 
     spawnObstacles();  
     cleanupInterval = setInterval(cleanUpHTML,10000);  
     startRoad(5,setRoadImages[0], 1080, 'road');

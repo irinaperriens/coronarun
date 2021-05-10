@@ -27,7 +27,6 @@ class City {
             return true;   
         }
     }
-
 }
 
 function createCity(position, speed, width,_class){

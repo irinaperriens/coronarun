@@ -6,6 +6,7 @@ export class Virus {
         this.element.classList.add('virus');
         grid.appendChild(this.element);
         this.hitPlayer = false;
+        this.element.style.left = position + 'px';
     }
 
     renderVirus(){

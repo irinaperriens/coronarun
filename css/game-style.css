@@ -31,18 +31,18 @@ body {
 }
 
 .virus {
-    background-image: url('img/Corona.png');
+    background-image: url('../img/Corona.png');
     bottom: 150px;
     width: 100px;
     height: 100px;
 }
 
 .facemask {
-    background-image: url('img/mask.png');
+    background-image: url('../img/mask.png');
 }
 
 .vaccin {
-    background-image: url('img/vaccine.png');
+    background-image: url('../img/vaccine.png');
 }
 
 .edge{
