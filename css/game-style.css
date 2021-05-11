@@ -228,18 +228,33 @@ nav li {
     margin-right:auto;
 }
 
-@media (min-width: 1500px){
+@media (min-width: 800px){
     
 
     /* GAME OVER */
 
     .gameover-text {
         width: 20%;
-        top: 20rem;
+        top: 6rem;
     }
 
     .gameover img {
-        width: 28%;
+        width: 35%;
+    }
+}
+
+@media (min-width: 1200px){
+    
+
+    /* GAME OVER */
+
+    .gameover-text {
+        width: 20%;
+        top: 6rem;
+    }
+
+    .gameover img {
+        width: 25%;
     }
 }
 
@@ -281,10 +296,10 @@ nav li {
     }
 
     .gameover-text {
-        width: 20%;
+        width: 15%;
         top: 10rem;
     }
 
     .gameover img {
-        width: 28%;    }
+        width: 25%;    }
 }

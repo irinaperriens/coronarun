@@ -44,9 +44,6 @@ export function startRoad(speed, image, width, _class){
     }
 }
 
-
-
-
 export function renderRoads(screenSize){
     var newroad_needed = false;
 	var this_width = 0;

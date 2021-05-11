@@ -4,7 +4,7 @@ import {Virus} from './obstacle/obstacle.js'
 import {Facemask} from './obstacle/facemask.js'
 import {Vaccin} from './obstacle/vaccin.js'
 import {startRoad, renderRoads, setRoadImage} from './background/road.js'
-import {startCity, renderCities, setCityImage} from './background/city.js'
+import {startCity, renderCity, setCityImage} from './background/city.js'
 import {startSky, renderSkies, setSkyImage} from './background/sky.js'
 import {startCloud, renderCloud} from './background/clouds.js'
 import * as highscores from './highscores.js'
@@ -22,7 +22,7 @@ player.setPlayerImage(highscores.getCookie("character"));
 // ARRAYS
 let setRoadImages = ['road', 'road1', 'road2'];
 let setSkyImages = ['sky', 'sky1', 'sky2'];
-let setCityImages = ['city', 'city1', 'city2'];
+let setCityImages = ['city', 'city1', 'city2', 'city3'];
 
 //INTERVALS
 let gameLoopInterval;
@@ -65,7 +65,7 @@ function gameLoop(){
     player.renderPlayer();
     renderObstacles();
     renderRoads(screenSize);
-    renderCities(screenSize);
+    renderCity(screenSize);
     renderSkies(screenSize);
     renderCloud(screenSize);
     renderSkies(screenSize);
