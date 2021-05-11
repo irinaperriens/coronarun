@@ -219,6 +219,10 @@ nav li {
     text-align: center;
 }
 
+.gameover-text h2 {
+        
+}
+
 .gameover img {
     position: absolute;
     width: 40%;
@@ -237,7 +241,7 @@ nav li {
         width: 20%;
         top: 6rem;
     }
-
+    
     .gameover img {
         width: 35%;
     }
