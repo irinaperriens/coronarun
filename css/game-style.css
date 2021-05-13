@@ -132,8 +132,6 @@ header {
     position: absolute;
     background-color:rgba(255,255,255,0.3);
     width: 30%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     top: 0;
     left: 0;
     border-radius:0 0 3rem 0;
@@ -211,16 +209,18 @@ nav li {
 .gameover-text {
     position: absolute;
     width: 30%;
-    top: 6rem;
+    top: 0.5rem;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right:auto;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
 }
 
 .gameover-text h2 {
-        
+    margin-top: 7rem;    
 }
 
 .gameover img {
@@ -228,41 +228,116 @@ nav li {
     width: 40%;
     left: 0;
     right: 0;
+    top: 1.5rem;
     margin-left: auto;
     margin-right:auto;
 }
 
-@media (min-width: 800px){
-    
+/* BUTTONS */
 
-    /* GAME OVER */
+@import url('https://fonts.googleapis.com/css?family=Carter+One');
 
-    .gameover-text {
-        width: 20%;
-        top: 6rem;
+    .game-button {
+        position: relative;
+        top: 0;
+        cursor: pointer;
+        text-decoration: none !important;
+        font-family: 'Carter One', sans-serif;
+        font-size: 1rem;
+        text-shadow: 2px 2px 2px #ED3AED;
+        border: none;
+        margin: 15px 15px 30px;
+        background-color: #F06EF4;
+        border-bottom: 3px solid #CC33CC;
+        border-top: 3px solid #F8B0F8;
+        color: #fff !important;
+        border-radius: 50px;
+        padding: 6px 10px 6px;
+        box-shadow: 0 6px 0 #B22CB2, 0 8px 1px 1px #330033, 0 10px 0 5px #4e254e, 0 12px 0 5px #6e406e, 0 15px 0 5px #4e254e, 0 15px 1px 6px #330033;
     }
-    
-    .gameover img {
-        width: 35%;
+
+    .game-button:hover {
+        top:2px;
+        box-shadow: 0 4px 0 #B22CB2, 0 6px 1px 1px #330033, 0 8px 0 5px #4e254e, 0 10px 0 5px #6e406e, 0 13px 0 5px #4e254e, 0 13px 1px 6px #330033;
     }
 }
+
 
 @media (min-width: 1200px){
     
 
+        /* GAME OVER */
+
+        .gameover-text {
+            width: 25%;
+            top: 10rem;
+            font-size: 1rem;
+        }
+
+        .gameover img {
+            margin-top: 6rem;
+            width: 30%;
+        }
+
+        /* GAME BUTTONS */
+
+        .game-button {
+            font-size: 1rem;
+        }
+
+        .game-button:hover {
+            top:2px;
+            box-shadow: 0 4px 0 #B22CB2, 0 6px 1px 1px #330033, 0 8px 0 5px #4e254e, 0 10px 0 5px #6e406e, 0 13px 0 5px #4e254e, 0 13px 1px 6px #330033;
+        }
+  
+    }
+
+    @media (min-width: 1300px){
+    
+
+        /* GAME OVER */
+
+        .gameover-text {
+            width: 25%;
+            top: 6rem;
+            font-size: 1rem;
+        }
+
+        .gameover img {
+            margin-top: 6rem;
+            width: 30%;
+        }
+
+  
+    }
+
+@media (min-width: 1500px){
+    
+
     /* GAME OVER */
 
     .gameover-text {
-        width: 20%;
-        top: 6rem;
+        width: 22%;
+        top: 8rem;
+        font-size: 1.1rem;
     }
 
     .gameover img {
-        width: 25%;
+        margin-top: 6rem;
+        width: 28%;
+    }
+
+    /* GAME BUTTONS */
+
+    .game-button {
+        font-size: 1.5rem;
+    }
+
+    .game-button:hover {
+        top: 2px;
+        box-shadow: 0 4px 0 #B22CB2, 0 6px 1px 1px #330033, 0 8px 0 5px #4e254e, 0 10px 0 5px #6e406e, 0 13px 0 5px #4e254e, 0 13px 1px 6px #330033;
     }
 }
-
-
 
 @media (min-width: 2000px){
     .home-bg {
@@ -300,10 +375,13 @@ nav li {
     }
 
     .gameover-text {
-        width: 15%;
-        top: 10rem;
+        width: 18%;
+        top: 6rem;
+        font-size: 1.2rem;
     }
 
     .gameover img {
-        width: 25%;    }
+        margin-top: 2rem;
+        width: 25%;    
+    }
 }
