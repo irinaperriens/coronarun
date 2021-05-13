@@ -26,11 +26,11 @@ body {
 
 .home-bg, .videolist-bg {
     background-image: url('../img/bg-ipad.png');
-    background-repeat: no-repeat;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    background-size: contain
+    background-size: cover;
+    
 }
 
 .home-buttons{
@@ -59,43 +59,72 @@ body {
     border: 4px solid #348789;
 }
 
+
 /* VIDEO PAGE */
 
-.video-container{
-    background-color:rgba(255,255,255,0.9);
-    margin-left: auto;
-    margin-right: auto;
-    width: 85%;
-    padding: 2rem;
-    border-radius: 50px;
+.video-container{ 
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'Carter One', sans-serif;
+        font-size: 1rem;
+        text-shadow: 2px 2px 2px #ED3AED;
+        border: none;
+        background-color: #F06EF4;
+        border-bottom: 3px solid #CC33CC;
+        border-top: 3px solid #F8B0F8;
+        color: #fff !important;
+        border-radius: 50px;
+        padding: 6px 10px 6px;
+        box-shadow: 0 6px 0 #B22CB2;
 }
 
-.tabs {
+.tabs video {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.tabs__sidebar {
+    padding: 0 1rem 1rem 1rem;
     display: flex;
     justify-content: space-between;
 }
 
-.tabs__sidebar {
-    width: 200px;
-    flex-shrink: 0;
+.tabs__button {
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    text-decoration: none !important;
+    font-family: 'Carter One', sans-serif;
+    font-size: 1rem;
+    border: none;
+    margin: 10px;
+    background-color: #76c8df;
+    border-bottom: 3px solid #46a6be;
+    border-top: 3px solid #b9f1ff;
+    color: #fff !important;
+    border-radius: 50px;
+    padding: 6px 10px 6px;
+    box-shadow: 0 6px 0 #348aa0, 0 8px 1px 1px #164f5e, 0 10px 0 5px #1b5a69, 0 12px 0 5px #297285, 0 15px 0 5px #1b5a69, 0 15px 1px 6px #0d3a46;
 }
 
-.tabs__button {
-    padding: 8px;
-    width: 100%;
-    cursor: pointer;
-    background-color:rgba(255,255,255,0.9);
-    border-radius: 50px;
-    font-family: 'Montserrat', sans-serif;
-    color: #348789;
-    border: 2px solid #348789;
-    margin-bottom: 1rem;
-    font-size: 13px;
+.tabs__button:hover {
+    top:2px;
+    background-color: #a9df76;
+    border-bottom: 3px solid #7cbe46;
+    border-top: 3px solid #d8ffb9;
+    box-shadow: 0 4px 0 #4da034, 0 6px 1px 1px #2d5e16, 0 8px 0 5px #34691b, 0 10px 0 5px #468529, 0 13px 0 5px #3a691b, 0 13px 1px 6px #27460d;
 }
 
 .tabs__button--active {
-    font-weight: 600;
-    background-color: #348789;
+    background-color: #a9df76;
+    border-bottom: 3px solid #7cbe46;
+    border-top: 3px solid #d8ffb9;
+    box-shadow: 0 4px 0 #4da034, 0 6px 1px 1px #2d5e16, 0 8px 0 5px #34691b, 0 10px 0 5px #468529, 0 13px 0 5px #3a691b, 0 13px 1px 6px #27460d;
     color: white;
 }
 
@@ -104,32 +133,46 @@ body {
 }
 
 .videolist-buttons a {
-    width: 80%;
+    width: 50%;
 }
 
 .tabs__content {
     display: none;
+    margin: 1rem;
 }
 
 .tabs__content--active {
     display: block;
-    width: 100%;
 }
 
-.videolist-buttons {
-    padding: 0;
-}
+@media (min-width: 900px){
+    .home-bg, .videolist-bg{
+        background-position: center;
+    }
 
-video {
-    border-radius: 10px;
-    width: 95%;
-}
+    .home-buttons a {
+        background-color:rgba(255,255,255,0.5);
+        border-radius: 50px;
+        text-decoration: none;
+        width: 20%;
+        margin:auto;
+        display: block;
+        padding:1.5rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        box-shadow: 0px 0px 10px 10px rgba(255,255,255,0.5);
+        color: #348789;
+        border: 4px solid #348789;
+    }
 
+}
 
 @media (min-width: 2000px){
-    .home-bg {
+    .home-bg, .videolist-bg {
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 134rem;
     }
 
     .home-buttons a {
