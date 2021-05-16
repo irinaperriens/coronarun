@@ -20,8 +20,8 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2rem;
-    width: 280px;
+    margin-top: 1rem;
+    width: 190px;
 }
 
 .home-bg, .videolist-bg, .character-bg, .highscore-bg, .mood-bg {
@@ -83,7 +83,7 @@ body {
         border-top: 3px solid #ffd8cc;
         color: #fff !important;
         border-radius: 50px;
-        padding: 20px;
+        padding: 15px;
         box-shadow: 0 6px 0 #cf7450;
 }
 
@@ -255,6 +255,18 @@ h2 {
 
     .gender-container ul{
         justify-content: center;
+    }
+
+    .video-container, .gender-container, .mood-container, .videocontainer{ 
+        width: 85%;
+    }
+
+    .tabs video {
+            display: block;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 13px;
     }
 
 }
