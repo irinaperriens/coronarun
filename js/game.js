@@ -3,8 +3,8 @@ import {Player} from './player/player.js'
 import {Virus} from './obstacle/obstacle.js'
 import {Facemask} from './obstacle/facemask.js'
 import {Vaccin} from './obstacle/vaccin.js'
-import {startRoad, renderRoads, setRoadImage} from './background/road.js'
-import {startCity, renderCity, setCityImage} from './background/city.js'
+import {startRoad, renderRoads} from './background/road.js'
+import {startCity, renderCity} from './background/city.js'
 import {startSky, renderSkies, setSkyImage} from './background/sky.js'
 import {startCloud, renderCloud} from './background/clouds.js'
 import * as highscores from './highscores.js'
@@ -20,9 +20,7 @@ let player = new Player(playerDOM);
 player.setPlayerImage(highscores.getCookie("character"));
 
 // ARRAYS
-let setRoadImages = ['road', 'road1', 'road2'];
 let setSkyImages = ['sky', 'sky1', 'sky2'];
-let setCityImages = ['city', 'city1', 'city2', 'city3'];
 
 //INTERVALS
 let gameLoopInterval;
@@ -138,7 +136,13 @@ let counter = 0;
 function scoreIsCounting (){
     let timerId = setInterval(function(){
         if(player.lives === 0){
-            clearInterval(timerId);
+            clearInterval(timerId);let highscores = getCookie("highscores");
+    if(highscores === ""){
+        highscores = [0,0,0,0,0];
+        setScoreCookie(highscores);
+    }
+
+    return JSON.parse(highscores);
         } else {
             counter += 1;
             scoreCounter.innerHTML = counter; 
@@ -152,14 +156,10 @@ scoreIsCounting ();
 function checkLevel(counter){
     if(counter >= levelCounter*1000){
         levelCounter++;
-        if(levelCounter < setRoadImages.length){
-            setRoadImage(setRoadImages[levelCounter-1]);
+        if(levelCounter < setSkyImages.length){
             setSkyImage(setSkyImages[levelCounter-1]);
-            setCityImage(setCityImages[levelCounter-1]);
         } else {
-            setRoadImage(setRoadImages[setRoadImages.length-1]);
             setSkyImage(setSkyImages[setSkyImages.length-1]);
-            setCityImage(setCityImages[setCityImages.length-1]);
         }
     }
     level.innerHTML = levelCounter;   
@@ -189,10 +189,10 @@ export function startGame() {
     gameLoopInterval =  setInterval(gameLoop,10); 
     spawnObstacles();  
     cleanupInterval = setInterval(cleanUpHTML,10000);  
-    startRoad(5,setRoadImages[0], 1080, 'road');
+    startRoad(5, 1080, 'road');
     startCloud(1.1,"cloud", screenSize, 'cloud');
     startSky(0.8,setSkyImages[0], screenSize, 'sky');
-    startCity(1.5,setCityImages[0], 1080, 'city');
+    startCity(1.5, 1080, 'city');
 }
 
 export function stopGame(){

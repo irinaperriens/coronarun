@@ -4,7 +4,7 @@ body {
 
 .hidden {
     display: none;
-}
+} 
 
 /* HOME PAGE */
 
@@ -12,7 +12,7 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5rem;
+    margin-top: 2rem;
     width: 300px;
 }
 
@@ -24,13 +24,20 @@ body {
     width: 280px;
 }
 
-.home-bg, .videolist-bg {
+.home-bg, .videolist-bg, .character-bg, .highscore-bg, .mood-bg {
     background-image: url('../img/bg-ipad.png');
     overflow: hidden;
     width: 100vw;
     height: 100vh;
     background-size: cover;
-    
+}
+
+.mood-bg video {
+    border-radius: 10px;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home-buttons{
@@ -43,17 +50,33 @@ body {
     margin-top: 4rem;
 }
 
-
+.highscore-container {
+    text-align: center;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Carter One', sans-serif;
+    font-size: 1rem;
+    text-shadow: 2px 2px 0px #FC9973;
+    border: none;
+    background-color: #F9AF98;
+    border-bottom: 3px solid #e98f6b;
+    border-top: 3px solid #ffd8cc;
+    color: #fff !important;
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: 0 6px 0 #cf7450;
+}
 
 /* VIDEO PAGE */
 
-.video-container{ 
+.video-container, .gender-container, .mood-container, .videocontainer{ 
         width: 85%;
         margin-left: auto;
         margin-right: auto;
         font-family: 'Carter One', sans-serif;
         font-size: 1rem;
-        text-shadow: 2px 2px 2px #FC9973;
+        text-shadow: 2px 2px 0px #FC9973;
         border: none;
         background-color: #F9AF98;
         border-bottom: 3px solid #e98f6b;
@@ -64,6 +87,7 @@ body {
         box-shadow: 0 6px 0 #cf7450;
 }
 
+
 .tabs video {
     display: block;
     width: 80%;
@@ -71,8 +95,6 @@ body {
     margin-right: auto;
     border-radius: 13px;
 }
-
-
 
 .tabs__sidebar {
     padding: 0 1rem 1rem 1rem;
@@ -82,7 +104,30 @@ body {
 
 /* BUTTONS */
 
-.tabs__button {
+.gender-container {
+    list-style-type: none;
+    padding-bottom: 2rem;
+    width: 60%;
+    text-align: center;
+}
+
+.gender-container ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.highscore-container h2 {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+h2 {
+    font-family: 'a Alloy Ink', 'sans-serif';
+    text-align: center;
+}
+
+.tabs__button, .character {
     position: relative;
     top: 0;
     cursor: pointer;
@@ -100,7 +145,7 @@ body {
     box-shadow: 0 6px 0 #348aa0, 0 8px 1px 1px #164f5e, 0 10px 0 5px #1b5a69, 0 12px 0 5px #297285, 0 15px 0 5px #1b5a69, 0 15px 1px 6px #0d3a46;
 }
 
-.tabs__button:hover {
+.tabs__button:hover, .character:hover {
     top:2px;
     background-color: #a9df76;
     border-bottom: 3px solid #7cbe46;
@@ -166,21 +211,21 @@ body {
     font-size: 20px;
     border: none;
     background-color: #F9AF98;
-    border-bottom: 3px solid #CF7450;
-    border-top: 3px solid rgba(255,255,255,.3);
+    border-bottom: 4px solid #CF7450;
+    border-top: 4px solid rgba(255,255,255,.3);
     color: #fff !important;
     border-radius: 50px;
     padding: 15px;
-    box-shadow: 0 6px 0 #ad5937, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #8d4325, 0 12px 0 5px #bd6c4b, 0 15px 0 5px #8d4325, 0 15px 1px 6px rgba(0,0,0,.3);    
+    box-shadow: 0 7px 0 #ad5937, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #8d4325, 0 12px 0 5px #bd6c4b, 0 15px 0 5px #8d4325, 0 15px 1px 6px rgba(0,0,0,.3);    
 }
 
 .home-buttons a:hover {
     display: block;
     top:2px;
     background-color: #53BDC0;
-    border-bottom: 3px solid #349ea1;
-    border-top: 3px solid rgba(255,255,255,.3);
-    box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e, 0 13px 1px 6px rgba(0,0,0,.3);
+    border-bottom: 4px solid #349ea1;
+    border-top: 4px solid rgba(255,255,255,.3);
+    box-shadow: 0 5px 0 #266b91, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e, 0 13px 1px 6px rgba(0,0,0,.3);
 }
 
 .home-buttons ul {
@@ -206,6 +251,10 @@ body {
 
     .home-buttons ul {
         width: 40%;
+    }
+
+    .gender-container ul{
+        justify-content: center;
     }
 
 }
