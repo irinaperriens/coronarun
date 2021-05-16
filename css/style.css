@@ -160,6 +160,7 @@ body {
     border-top: 3px solid #b9f1ff;
     color: #fff !important;
     border-radius: 80px;
+    
     padding: 5px 10px 10px 10px;
     box-shadow: 0 6px 0 #348aa0, 0 8px 1px 1px #164f5e, 0 10px 0 5px #1b5a69, 0 12px 0 5px #297285, 0 15px 0 5px #1b5a69, 0 15px 1px 6px #0d3a46;
 }
