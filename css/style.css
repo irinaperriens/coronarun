@@ -234,6 +234,9 @@ h2 {
     margin-right: auto;
 }
 
+.character_btn {
+    text-align: center;
+}
 
 
 @media (min-width: 1200px){
@@ -261,9 +264,13 @@ h2 {
         width: 85%;
     }
 
+    .video-container video, .gender-container video, .mood-container video, .videocontainer video{ 
+        width: 70%;
+    }
+
     .tabs video {
             display: block;
-            width: 80%;
+            width: 65%;
             margin-left: auto;
             margin-right: auto;
             border-radius: 13px;
@@ -283,6 +290,10 @@ h2 {
 
     .home-buttons ul {
         width: 30%;
+    }
+
+    .video-container video, .gender-container video, .mood-container video, .videocontainer video{ 
+        width: 70%;
     }
 
 }
