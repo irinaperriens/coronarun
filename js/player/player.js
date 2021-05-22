@@ -38,7 +38,7 @@ export class Player {
         let clock = document.querySelector(".clock");
         clock.classList.remove("hidden");
     
-        let timeLeft = 10;
+        let timeLeft = 5;
     
         let interval = setInterval(() => {
             document.getElementById("seconds").innerHTML = timeLeft;

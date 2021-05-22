@@ -13,7 +13,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
-    width: 300px;
+    width: 500px;
 }
 
 .video-titel {
@@ -83,7 +83,7 @@ body {
         border-top: 3px solid #ffd8cc;
         color: #fff !important;
         border-radius: 50px;
-        padding: 15px;
+        padding: 10px 10px 0px 10px;
         box-shadow: 0 6px 0 #cf7450;
 }
 
@@ -125,6 +125,8 @@ body {
 h2 {
     font-family: 'a Alloy Ink', 'sans-serif';
     text-align: center;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .tabs__button, .character {
@@ -240,6 +242,12 @@ h2 {
 
 
 @media (min-width: 1200px){
+    
+    .titel {
+        width: 600px;
+    }
+    
+    
     .home-bg, .videolist-bg{
         background-position: center;
     }
@@ -280,6 +288,10 @@ h2 {
 
 @media (min-width: 1500px){
 
+    .titel {
+        width: 700px;
+    }
+
     .video-container{ 
         width: 80%;
     }
@@ -303,6 +315,10 @@ h2 {
     .home-bg, .videolist-bg {
         background-repeat: no-repeat;
         background-size: 134rem;
+    }
+
+    .titel {
+        width: 800px;
     }
 
     .video-container{ 

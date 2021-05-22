@@ -5,7 +5,7 @@ import {Facemask} from './obstacle/facemask.js'
 import {Vaccin} from './obstacle/vaccin.js'
 import {startRoad, renderRoads} from './background/road.js'
 import {startCity, renderCity} from './background/city.js'
-import {startSky, renderSkies, setSkyImage} from './background/sky.js'
+import {startSky, renderSkies} from './background/sky.js'
 import {startCloud, renderCloud} from './background/clouds.js'
 import * as highscores from './highscores.js'
 
@@ -19,8 +19,6 @@ let screenSize = window.innerWidth;
 let player = new Player(playerDOM);
 player.setPlayerImage(highscores.getCookie("character"));
 
-// ARRAYS
-let setSkyImages = ['sky', 'sky1', 'sky2'];
 
 //INTERVALS
 let gameLoopInterval;
@@ -156,11 +154,11 @@ scoreIsCounting ();
 function checkLevel(counter){
     if(counter >= levelCounter*1000){
         levelCounter++;
-        if(levelCounter < setSkyImages.length){
+        /* if(levelCounter < setSkyImages.length){
             setSkyImage(setSkyImages[levelCounter-1]);
         } else {
             setSkyImage(setSkyImages[setSkyImages.length-1]);
-        }
+        }*/
     }
     level.innerHTML = levelCounter;   
 }
@@ -191,7 +189,7 @@ export function startGame() {
     cleanupInterval = setInterval(cleanUpHTML,10000);  
     startRoad(5, 1080, 'road');
     startCloud(1.1,"cloud", screenSize, 'cloud');
-    startSky(0.8,setSkyImages[0], screenSize, 'sky');
+    startSky(0.8, screenSize, 'sky');
     startCity(1.5, 1080, 'city');
 }
 

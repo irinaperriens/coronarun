@@ -1,5 +1,4 @@
 let skyArray = [];
-let imageUrl;
 class Sky {
     constructor(position, speed, width,_class){
         this.position = position;
@@ -8,10 +7,9 @@ class Sky {
         this._class = _class;
         this.element = document.createElement('img');
 
-        this.element.setAttribute('src', 'img/' + imageUrl + '.png');
+        this.element.setAttribute('src', 'img/sky.png');
         this.element.classList.add(_class);
         this.element.style.width = width + 'px';
-        //this.element.style.backgroundColor = "red";
         let grid = document.querySelector('.background');
         grid.appendChild(this.element);
     }
@@ -24,7 +22,6 @@ class Sky {
     checkBoundary(screenSize){
         if(this.position < -this.width){
             this.element.classList.add("canBeDeleted");
-            createSky(screenSize,this.speed,this.width,this._class)
             return true;   
         }
     }
@@ -32,30 +29,38 @@ class Sky {
 }
 
 function createSky(position, speed, width,_class){
-    skyArray.push(new Sky(position-100, speed, width,_class));
+    skyArray.push(new Sky(position, speed, width,_class));
 }
 
-export function setSkyImage(img){
-    imageUrl = img;
-}
 
-export function startSky(speed, image, width, _class){
-    setSkyImage(image);
-    
-        createSky(width, speed, width, _class);
+export function startSky(speed, width, _class){
+        for (let index = 0; index < 3 ; index++) {
+            createSky(width *index, speed, width, _class);
+        }
     
 }
 
 export function renderSkies(screenSize){
-    if(skyArray.length != 0){
+    var newsky_needed = false;
+	var this_width = 0;
+	var this_speed = 0;
+	var this_class = "";
+	if(skyArray.length != 0){
             skyArray.forEach(e=>{
                 e.renderSky();
                 if(e.checkBoundary(screenSize)){
-                    skyArray.shift();
+                    newsky_needed = true;
+					this_width = e.width;
+					this_speed = e.speed;
+					this_class = e._class;
                 }
             }
 
         )
+		if (newsky_needed) {
+			  skyArray.shift();
+			  createSky((this_width*2),this_speed,this_width,this_class)
+		}
     }
 }
 
