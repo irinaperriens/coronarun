@@ -73,13 +73,13 @@ function spawnObstacles(){
     let random = Math.floor(Math.random()*100)+1;
     if(random < 10){
         obstacles.push(new Vaccin(screenSize+100,grid));
-    } else if(random > 10 && random < 30){
+    } else if(random > 10 && random < 20){
         obstacles.push(new Facemask(screenSize+100,grid));
     } else {
         obstacles.push(new Virus(screenSize+100,grid));
     }
     console.log(obstacles);
-    spawnObstaclesInterval = setTimeout(spawnObstacles, Math.floor(Math.random()*3000)+1000);  
+    spawnObstaclesInterval = setTimeout(spawnObstacles, Math.floor(Math.random()*1200)+500);  
 }
 
 function renderObstacles(){
@@ -198,7 +198,7 @@ export function startGame() {
     window.addEventListener('scroll', noScroll);
     console.log(screenSize);
 
-    gameLoopInterval =  setInterval(gameLoop,10); 
+    gameLoopInterval =  setInterval(gameLoop,8); 
     spawnObstacles();  
     cleanupInterval = setInterval(cleanUpHTML,10000);  
     startRoad(5, 1080, 'road');
