@@ -47,16 +47,18 @@ function keyDown(e){
 function touchDown(){
         if(!player.jump){
             player.velocity = 40;
+            let jumpSound = new Audio('/audio/jump.mp3');
+            jumpSound.play();
         }
 }
 
-function touchUp(){
+/*function touchUp(){
     
         if(player.velocity > 2){
             player.velocity = -3;
         }
     
-}
+}*/
 
 // GAME
 function gameLoop(){
@@ -194,7 +196,7 @@ export function startGame() {
     document.addEventListener("keydown", keyDown);
     //document.addEventListener("keyup", keyUp);
     document.addEventListener("touchstart", touchDown);
-    document.addEventListener("touchend", touchUp);
+    //document.addEventListener("touchend", touchUp);
     window.addEventListener('scroll', noScroll);
     console.log(screenSize);
 
