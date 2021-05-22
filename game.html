@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/game-style.css">
     <script src="app.js" type="module"></script>
-    
 </head>
 
 <header>
+
     <nav>
         <li class="score-container">
             <img src="img/score.png" alt="score">
@@ -27,6 +27,9 @@
         <li class="score-container">
             <img src="img/Lvlup.png" alt="lvlup">
             <a href=""id="level">1</a>
+        </li>
+        <li>
+            <button class="togglemusic sound">&#128266;</button>
         </li>
     </nav>
 </header>
@@ -43,24 +46,24 @@
                     <p>Door de video's te kijken leer je meer over corona en de regels.</p>
                     <p>Vertel ons eerst hoe je je voelt en kijk dan naar de video!</p>
                     <div class="moods">
-                        <button data-mood = "happy" class="mood game-button">&#128512;</button>
-                        <button data-mood = "sad" class="mood game-button">&#128546;</button>
-                        <button data-mood = "angry" class="mood game-button">&#128544;</button>
-                        <button data-mood = "scared" class="mood game-button">&#128552;</button>
+                        <button data-mood = "happy" class="mood game-button sound">&#128512;</button>
+                        <button data-mood = "sad" class="mood game-button sound">&#128546;</button>
+                        <button data-mood = "angry" class="mood game-button sound">&#128544;</button>
+                        <button data-mood = "scared" class="mood game-button sound">&#128552;</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="protection-container">
-            <div class="shield-by-mask hidden">
-                <img src="img/mask.png" alt="mask" width="40px">
-                <p style="color: white">You are protected</p>
+            <div class="vaccine-mask">
+                <img src="img/mask_protection.png" alt="mask" width="30px">
+                <p class="shield-by-mask hidden">✓</p>
             </div>
     
-            <div class="clock hidden">
-                <img src="img/vaccine.png" alt="vaccine" width="40px">
-                <span id="seconds"></span>
+            <div class="vaccine-mask">
+                <img src="img/vaccine.png" alt="vaccine" width="30px">
+                <span id="seconds" class="clock hidden"></span>
             </div>
         </div>
 
@@ -71,8 +74,10 @@
         <div class="grid"></div>  
         <div class="background"></div>         
     </div>  
+
+
 </body>
 
 <script src="js/mood.js"></script>
-
+<script src="js/audio.js"></script>
 </html>

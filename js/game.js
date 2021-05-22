@@ -7,7 +7,7 @@ import {startRoad, renderRoads} from './background/road.js'
 import {startCity, renderCity} from './background/city.js'
 import {startSky, renderSkies} from './background/sky.js'
 import {startCloud, renderCloud} from './background/clouds.js'
-import * as highscores from './highscores.js'
+import * as highscore from './highscores.js'
 
 // ELEMENTEN
 const playerDOM = document.querySelector('#player');
@@ -17,7 +17,7 @@ let lives = document.querySelector('#lives');
 let screenSize = window.innerWidth;
 
 let player = new Player(playerDOM);
-player.setPlayerImage(highscores.getCookie("character"));
+player.setPlayerImage(highscore.getCookie("character"));
 
 
 //INTERVALS
@@ -30,17 +30,19 @@ function keyDown(e){
     if(e.keyCode == 32){
         if(!player.jump){
             player.velocity = 40;
+            let jumpSound = new Audio('/audio/jump.mp3');
+            jumpSound.play();
         }
     }
 }
 
-function keyUp(e){
+/*function keyUp(e){
     if(e.keyCode == 32){
         if(player.velocity > 2){
             player.velocity = -3;
         }
     }
-}
+}*/
 
 function touchDown(){
         if(!player.jump){
@@ -97,18 +99,26 @@ function renderObstacles(){
 
 function collision(player, obstacle){
     if(obstacle.position <= 220 && obstacle.position >= 120 && player.position <= 130 && player.position >= 30 && obstacle.hitPlayer == false){
-
+        let hitSound = new Audio('./audio/hit.mp3');
+        let maskSound = new Audio('./audio/masksound.mp3');
+        let vaccineSound = new Audio('./audio/vaccin.mp3');
         if(obstacle.type == 'virus' && player.shielded == false && player.immune == false){
             player.lives--;
+            hitSound.play();
         } else if(obstacle.type == 'virus' && player.shielded == true && player.immune == false){
             player.removeShield();
         }
          else if(obstacle.type == 'facemask'){
             player.shieldPlayer();
+            maskSound.play();
         } else if(obstacle.type == 'vaccin'&& player.immune == false){
             player.vaccinatePlayer();
-            
+            vaccineSound.play();
         }
+
+        
+
+
 
         obstacle.hitPlayer = true;
         obstacle.element.classList.add('hit-player');       
@@ -116,10 +126,13 @@ function collision(player, obstacle){
 
         if(player.lives === 0){
             
+            backgroundMusic.pause();
             let gameover = document.querySelector('.gameover');
             let gameOverScore = document.querySelector('.gameover-score');
             gameOverScore.innerHTML = counter;
             gameover.classList.add("visible");
+            let gameoverSound = new Audio('./audio/gameover.mp3');
+            gameoverSound.play();
             stopGame();
         }
     }
@@ -134,10 +147,11 @@ let counter = 0;
 function scoreIsCounting (){
     let timerId = setInterval(function(){
         if(player.lives === 0){
-            clearInterval(timerId);let highscores = getCookie("highscores");
+            clearInterval(timerId);
+            let highscores = highscore.getCookie("highscores");
     if(highscores === ""){
         highscores = [0,0,0,0,0];
-        setScoreCookie(highscores);
+        highscore.setScoreCookie(highscores);
     }
 
     return JSON.parse(highscores);
@@ -178,7 +192,7 @@ function noScroll(){
 export function startGame() {
     // Game Controls
     document.addEventListener("keydown", keyDown);
-    document.addEventListener("keyup", keyUp);
+    //document.addEventListener("keyup", keyUp);
     document.addEventListener("touchstart", touchDown);
     document.addEventListener("touchend", touchUp);
     window.addEventListener('scroll', noScroll);
@@ -191,15 +205,43 @@ export function startGame() {
     startCloud(1.1,"cloud", screenSize, 'cloud');
     startSky(0.8, screenSize, 'sky');
     startCity(1.5, 1080, 'city');
+
+    backgroundMusic.play();
 }
 
 export function stopGame(){
 
-    highscores.writeHighscore(counter);
-    console.log(highscores.getHighscores());
+    highscore.writeHighscore(counter);
+    console.log(highscore.getHighscores());
 
     clearInterval(gameLoopInterval);
     clearInterval(cleanupInterval);
     clearTimeout(spawnObstaclesInterval);    
 }
 
+
+// ACHTERGROND MUZIEK
+
+
+let backgroundMusic = new Audio('./audio/bg-music.mp3');
+let isPlaying = true; 
+let soundButton = document.querySelector('.togglemusic');
+
+soundButton.addEventListener('click', togglePlay);
+
+function togglePlay() {
+    if(isPlaying){
+        backgroundMusic.pause();
+        soundButton.innerHTML = '&#128266;'
+    } else {
+        backgroundMusic.play();
+        soundButton.innerHTML = '&#128264;'
+    }
+  };
+  
+  backgroundMusic.onplaying = function() {
+    isPlaying = true;
+  };
+  backgroundMusic.onpause = function() {
+    isPlaying = false;
+  };

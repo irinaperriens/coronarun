@@ -44,6 +44,9 @@ export class Player {
             document.getElementById("seconds").innerHTML = timeLeft;
     
             timeLeft--;
+
+            let countdown = new Audio('./audio/timer.mp3');
+            countdown.play();
     
             if(timeLeft < 0){
                 clearInterval(interval);
@@ -80,3 +83,7 @@ export class Player {
     }
 
 }
+
+
+
+

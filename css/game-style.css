@@ -11,7 +11,6 @@ body {
     position: absolute;
     z-index: 13;
     left: 120px;
-    border: solid 1px red;
 }
 
 .player {
@@ -20,13 +19,20 @@ body {
     left: -50px;
 }
 
-.virus, .vaccin, .facemask {
+.virus {
     position: absolute;
-    width: 130px;
-    height: 130px;
     background-size: cover;
     /*--background-color: orange;*/
     bottom: 115px;
+    left: 0;
+}
+
+.vaccin {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: 150px;
+    background-size: cover;
     left: 0;
 }
 
@@ -39,17 +45,25 @@ body {
 
 .facemask {
     background-image: url('../img/mask.png');
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*--background-color: orange;*/
+    bottom: 115px;
+    left: 0;
 }
 
 .vaccin {
     background-image: url('../img/vaccine.png');
 }
 
-.edge{
+/*.edge{
     width: 100px;
     height: 100px;
     border: solid 1px red;
-}
+}*/
 
 .game-bg {
     background-color: #12003d;
@@ -173,7 +187,7 @@ nav li {
 	color: white;
     font-family: 'IBM Plex Mono', monospace;
 	font-size: 1.3rem;
-    margin-left: 2rem;
+    margin: 0;
 }
 
 .protection-container { 
@@ -187,7 +201,30 @@ nav li {
     border-radius:0 0 0 3rem;
     border-left: 5px groove rgba(255,255,255,0.8);
     border-bottom: 5px groove rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
 }
+
+.vaccine-mask img {
+    display: block;
+    margin-bottom: 0.8rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vaccine-mask {
+    display: flex;
+    flex-direction: column;
+}
+
+.vaccine-mask {
+    text-align: center;
+}
+
 
 /* GAME OVER */
 
@@ -255,6 +292,30 @@ nav li {
         top:2px;
         box-shadow: 0 4px 0 #B22CB2, 0 6px 1px 1px #330033, 0 8px 0 5px #4e254e, 0 10px 0 5px #6e406e, 0 13px 0 5px #4e254e, 0 13px 1px 6px #330033;
     }
+
+    .togglemusic{ 
+        position: relative;
+        top: 0;
+        cursor: pointer;
+        text-decoration: none !important;
+        font-family: 'Carter One', sans-serif;
+        font-size: 1rem;
+        border: none;
+        margin: 15px 15px 30px;
+        background-color: #F06EF4;
+        border-bottom: 3px solid #CC33CC;
+        border-top: 3px solid #F8B0F8;
+        color: #fff !important;
+        border-radius: 50px;
+        padding: 6px 10px 6px;
+        box-shadow: 0 6px 0 #B22CB2, 0 8px 1px 1px #330033, 0 10px 0 5px #4e254e, 0 12px 0 5px #6e406e, 0 15px 0 5px #4e254e, 0 15px 1px 6px #330033;
+    }
+
+    .togglemusic:hover {
+        top:2px;
+        box-shadow: 0 4px 0 #B22CB2, 0 6px 1px 1px #330033, 0 8px 0 5px #4e254e, 0 10px 0 5px #6e406e, 0 13px 0 5px #4e254e, 0 13px 1px 6px #330033;
+    }
+
 
 
 
