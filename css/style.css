@@ -55,7 +55,7 @@ body {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Carter One', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     text-shadow: 2px 2px 0px #FC9973;
     border: none;
@@ -74,7 +74,7 @@ body {
         width: 85%;
         margin-left: auto;
         margin-right: auto;
-        font-family: 'Carter One', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 1rem;
         text-shadow: 2px 2px 0px #FC9973;
         border: none;
@@ -134,7 +134,7 @@ h2 {
     top: 0;
     cursor: pointer;
     text-decoration: none !important;
-    font-family: 'Carter One', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     border: none;
     margin: 10px;
@@ -182,7 +182,7 @@ h2 {
     top: 0;
     cursor: pointer;
     text-decoration: none !important;
-    font-family: 'Carter One', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
     border: none;
     margin: 20px;
@@ -209,7 +209,7 @@ h2 {
     display: block;
     cursor: pointer;
     text-decoration: none !important;
-    font-family: 'Carter One', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     border: none;
     background-color: #F9AF98;
