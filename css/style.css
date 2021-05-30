@@ -159,6 +159,47 @@ h2 {
     box-shadow: 0 4px 0 #4da034, 0 6px 1px 1px #2d5e16, 0 8px 0 5px #34691b, 0 10px 0 5px #468529, 0 13px 0 5px #3a691b, 0 13px 1px 6px #27460d;
 }
 
+#start_spel {
+    background-color: #76c8df;
+    border-bottom: 3px solid #46a6be;
+    border-top: 3px solid #b9f1ff;
+    text-shadow: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    text-decoration:none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5rem;
+    color: white;
+}
+
+#start_spel:hover {
+    background-color: #a9df76;
+    border-bottom: 3px solid #7cbe46;
+    border-top: 3px solid #d8ffb9;
+}
+
+.uitleg-container{ 
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    text-shadow: 2px 2px 0px #FC9973;
+    border: none;
+    background-color: #F9AF98;
+    border-bottom: 3px solid #e98f6b;
+    border-top: 3px solid #ffd8cc;
+    color: #fff !important;
+    border-radius: 50px;
+    padding:20px;
+    box-shadow: 0 6px 0 #cf7450;
+}
+
 .tabs__button--active {
     background-color: #a9df76;
     border-bottom: 3px solid #7cbe46;
@@ -269,6 +310,18 @@ h2 {
     text-align: center;
 }
 
+.uitleg {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.score-pagina {
+    margin-bottom: 1rem;
+}
+
 @media (min-width: 1200px){
     
     .titel {
@@ -316,6 +369,9 @@ h2 {
         width: 70%;
     }
 
+    .uitleg {
+        width: 65%;
+    }
 }
 
 @media (min-width: 1500px){
@@ -338,6 +394,10 @@ h2 {
 
     .video-container video, .gender-container video, .mood-container video, .videocontainer video{ 
         width: 70%;
+    }
+
+    .uitleg {
+        width: 45%;
     }
 
 }
