@@ -12,6 +12,6 @@ for (let i = 0; i < characters.length; i++) {
         let gender = characters[i].getAttribute('data-gender');
         console.log(gender);
         document.cookie = "character=" + gender;
-        window.location.href = "game.html";
+        window.location.href = "uitleg.html";
     })
 }
