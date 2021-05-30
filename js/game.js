@@ -4,7 +4,7 @@ import {Virus} from './obstacle/obstacle.js'
 import {Facemask} from './obstacle/facemask.js'
 import {Vaccin} from './obstacle/vaccin.js'
 import {startRoad, renderRoads} from './background/road.js'
-import {startCity, renderCity} from './background/city.js'
+import {startCity, renderCity, setCityImage} from './background/city.js'
 import {startSky, renderSkies} from './background/sky.js'
 import {startCloud, renderCloud} from './background/clouds.js'
 import * as highscore from './highscores.js'
@@ -15,6 +15,7 @@ const grid = document.querySelector('.grid');
 let obstacles = [];
 let lives = document.querySelector('#lives');
 let screenSize = window.innerWidth;
+let background = document.querySelector(".game-bg");
 
 let player = new Player(playerDOM);
 player.setPlayerImage(highscore.getCookie("character"));
@@ -24,6 +25,10 @@ player.setPlayerImage(highscore.getCookie("character"));
 let gameLoopInterval;
 let spawnObstaclesInterval;
 let cleanupInterval;
+
+//ARRAYS
+
+let cityImages = ['city','city1','city2','city3']
 
 // GAME CONTROLS
 function keyDown(e){
@@ -127,7 +132,7 @@ function collision(player, obstacle){
         lives.innerHTML = player.lives;
 
         if(player.lives === 0){
-            
+            stopGame();
             backgroundMusic.pause();
             let gameover = document.querySelector('.gameover');
             let gameOverScore = document.querySelector('.gameover-score');
@@ -135,7 +140,7 @@ function collision(player, obstacle){
             gameover.classList.add("visible");
             let gameoverSound = new Audio('./audio/gameover.mp3');
             gameoverSound.play();
-            stopGame();
+            //stopGame();
         }
     }
 }
@@ -170,12 +175,13 @@ scoreIsCounting ();
 function checkLevel(counter){
     if(counter >= levelCounter*1000){
         levelCounter++;
-        /* if(levelCounter < setSkyImages.length){
-            setSkyImage(setSkyImages[levelCounter-1]);
+        if(levelCounter < cityImages.length){
+            setCityImage(cityImages[levelCounter-1]);
         } else {
-            setSkyImage(setSkyImages[setSkyImages.length-1]);
-        }*/
+            setCityImage(cityImages[cityImages.length-1]);
+        }
     }
+    changeBackgroundGradient(levelCounter);
     level.innerHTML = levelCounter;   
 }
 
@@ -247,3 +253,11 @@ function togglePlay() {
   backgroundMusic.onpause = function() {
     isPlaying = false;
   };
+
+  //Achtergrond gradients
+  function changeBackgroundGradient(levelCounter){
+      if(levelCounter <= 10){
+        background.classList.remove('g' + (levelCounter -1));
+        background.classList.add('g' + levelCounter);
+      }
+  }

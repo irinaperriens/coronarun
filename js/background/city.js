@@ -1,4 +1,5 @@
 let cityArray = [];
+let cityImage = 'city'
 class City {
     constructor(position, speed, width,_class){
         this.position = position;
@@ -7,7 +8,7 @@ class City {
         this._class = _class;
         this.element = document.createElement('img');
 
-        this.element.setAttribute('src', 'img/city2.png');
+        this.element.setAttribute('src', 'img/' + cityImage +'.png');
         this.element.classList.add(_class);
         this.element.style.width = width + 'px';
 		this.element.style.left = position + 'px';
@@ -30,6 +31,10 @@ class City {
 
 function createCity(position, speed, width,_class){
     cityArray.push(new City(position, speed, width,_class));
+}
+
+export function setCityImage(image){
+    cityImage = image;
 }
 
 
