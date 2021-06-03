@@ -1,4 +1,5 @@
 let roadArray = [];
+let roadImage = 'road'
 class Road {
     constructor(position, speed, width,_class){
         this.position = position;
@@ -7,7 +8,7 @@ class Road {
         this._class = _class;
         this.element = document.createElement('img');
 
-        this.element.setAttribute('src', 'img/road.png');
+        this.element.setAttribute('src','img/' + roadImage + '.png');
         this.element.classList.add(_class);
         this.element.style.width = width + 'px';
 		this.element.style.left = position + 'px';
@@ -32,6 +33,9 @@ function createRoad(position, speed, width,_class){
     roadArray.push(new Road(position, speed, width,_class));
 }
 
+export function setRoadImage(image){
+    roadImage = image;
+}
 
 export function startRoad(speed, width, _class){
     for (let index = 0; index < 3 ; index++) {

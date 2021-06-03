@@ -3,7 +3,7 @@ import {Player} from './player/player.js'
 import {Virus} from './obstacle/obstacle.js'
 import {Facemask} from './obstacle/facemask.js'
 import {Vaccin} from './obstacle/vaccin.js'
-import {startRoad, renderRoads} from './background/road.js'
+import {startRoad, renderRoads, setRoadImage} from './background/road.js'
 import {startCity, renderCity, setCityImage} from './background/city.js'
 import {startSky, renderSkies} from './background/sky.js'
 import {startCloud, renderCloud} from './background/clouds.js'
@@ -28,7 +28,8 @@ let cleanupInterval;
 
 //ARRAYS
 
-let cityImages = ['city','city1','city2','city3']
+let cityImages = ['city','city1','city2','city3', 'city4', 'city5', 'city6', 'city7', 'city8', 'city9']
+let roadImages = ['road','road1','road2','road3', 'road4', 'road5','road6', 'road7', 'road8', 'road9']
 
 // GAME CONTROLS
 function keyDown(e){
@@ -147,7 +148,7 @@ function collision(player, obstacle){
 
 let level = document.querySelector('#level');
 let levelCounter = 1;
-
+ 
 let scoreCounter = document.querySelector('#score-counter');
 let counter = 0;
 
@@ -177,8 +178,10 @@ function checkLevel(counter){
         levelCounter++;
         if(levelCounter < cityImages.length){
             setCityImage(cityImages[levelCounter-1]);
+            setRoadImage(roadImages[levelCounter-1]);
         } else {
             setCityImage(cityImages[cityImages.length-1]);
+            setRoadImage(roadImages[roadImages.length-1]);
         }
     }
     changeBackgroundGradient(levelCounter);
@@ -212,7 +215,7 @@ export function startGame() {
     startRoad(5, 1080, 'road');
     startCloud(1.1,"cloud", screenSize, 'cloud');
     startSky(0.8, screenSize, 'sky');
-    startCity(1.5, 1080, 'city');
+    startCity(4, 1080, 'city');
 
     backgroundMusic.play();
 }
