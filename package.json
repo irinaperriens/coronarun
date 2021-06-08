@@ -9,4 +9,8 @@
   },
   "author": "Irina Perriens",
   "license": "MIT"
+  ,
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
 }
